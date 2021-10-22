@@ -1,7 +1,0 @@
-pyjokes
-requests
-pandas
-sqlalchemy
-psycopg2-binary
-unicodedata2
-unidecode
