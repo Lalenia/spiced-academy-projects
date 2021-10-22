@@ -1,0 +1,51 @@
+version: '3'
+services:
+
+  mongodb:
+    container_name: mongo_pipe
+    image: mongo
+    ports:
+    - 27017:27017
+    environment:
+    - MONGO_INITDB_ROOT_USERNAME=lali
+    - MONGO_INITDB_ROOT_PASSWORD=lale
+    
+  postgresdb:
+    container_name: postgresdb_pipe
+    image: postgres
+    ports:
+    - 5555:5432
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_DB=tweets
+    depends_on:
+    - mongodb
+
+  tweet_collector:
+    container_name: tweet_collector_pipe
+    build: tweet_collector/
+    volumes:
+    - ./tweet_collector/:/app
+    - ./logs:/logs
+    depends_on:
+    - mongodb
+    
+  etl:
+    container_name: etl_job_pipe
+    build: etl_job/
+    volumes:
+    - ./etl_job/:/app
+    - ./logs:/logs
+    depends_on:
+    - mongodb
+    - postgresdb
+
+  slack_job:
+    container_name: slack_boat_pipe
+    build: slack_job/
+    volumes:
+    - ./slack_job/:/app
+    - ./logs:/logs
+    depends_on:
+    - postgresdb
