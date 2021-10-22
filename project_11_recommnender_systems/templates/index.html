@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <!-- the head contains title, metadata and other stuff -->
+      <title>Spiced Movie Recommender</title>
+
+      <!-- CSS stylesheet: define styling: layout, colors, fonts etc. -->
+      <link rel="stylesheet" href="/static/style.css">
+
+  </head>
+  <body>
+      <!-- the body contains the content of the page -->
+
+<div class="header">
+    <h1> <span style="color:blue;font-family:georgia,garamond,serif;font-size:40px;font-style:italic;">A not so Random Movie Recommender!</span > </h1>
+    <p>
+    </p>
+</div>
+
+<div class="content">
+    <!--<img src="/static/movies.jpg" width="700">-->
+    <div class="outer">
+    <img src="/static/movies.jpg" width="800"/>
+    <p>
+    Photo by <a href="https://joseluisfernandez.me/wp-content/uploads/2020/02/Imagen_destacada_film-1536x1025.jpg">Google Search</a>
+    </p>
+    </div>
+
+    <!-- Here a button that takes until 5 values and stores thems all together (onButton()) -->
+    <form autocomplete="off" action="/recommender">
+        <p>
+        <h1> <span style="color:yellow;font-family:georgia,garamond,serif;font-size:30px;font-style:normal;">Give 5 movies and rate them!</span > </h1>
+        <p>
+
+        <p>
+        <h1> <span style="color:gray;font-family:georgia,garamond,serif;font-size:20px;font-style:normal;">Movie 1</span > </h1>
+        <div class="autocomplete" >
+        <input id="myInput" type="text" name="movie_1" placeholder="Movie">
+        <p>
+        <h1> <span style="color:yellow;font-family:georgia,garamond,serif;font-size:20px;font-style:normal;">Rating 1</span > </h1>
+        <p>
+        <input name="rating_2" placeholder="Rating">
+        </div>
+        <p>
+        <p>
+
+        <p>
+        Movie 2:
+        <div class="autocomplete" >
+        <input id="myInput_2" type="text" name="movie_2" placeholder="Movie">
+        <p>
+        Rating 2:
+        <p>
+        <input name="rating_2" placeholder="Rating">
+        </div>
+        <p>
+        <p>
+       
+        <p>
+        Movie 3:
+        <div class="autocomplete" >
+        <input id="myInput_3" type="text" name="movie_3" placeholder="Movie">
+        <p>
+        Rating 3:
+        <p>
+        <input name="rating_3" placeholder="Rating">
+        </div>
+        <p>
+        <p>
+
+        <p>
+        Movie 4:
+        <div class="autocomplete" >
+        <input id="myInput_4" type="text" name="movie_4" placeholder="Movie">
+        <p>
+        Rating 4:
+        <p>
+        <input name="rating_4" placeholder="Rating">
+        </div>
+        <p>
+        <p>
+
+        <p>
+        Movie 5:
+        <div class="autocomplete" >
+        <input id="myInput_5" type="text" name="movie" placeholder="Movie">
+        <p>
+        Rating 5:
+        <p>
+        <input name="rating_5" placeholder="Rating">
+        </div>
+        <p>
+        <p>
+
+        <p>  <br>
+        </p>
+
+        
+       <input id="button" type="submit" value="Get recommendations! Cause what you give is what you get!">
+
+    </form>
+
+    <hr>
+
+    <a href="https://www.google.com"> Go to the google site!</a>
+
+    <p>  <br>
+    </p>
+        
+    <hr>
+
+    <div class="authors">
+    <i>authors: Sara, Kristian and Lalenia</i>
+    </div>
+</div>
+
+<script>
+var movies = {{ movienames|safe }};
+
+function autocomplete(inp, arr) {
+  var currentFocus;
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        currentFocus++;
+        addActive(x);
+      } else if (e.keyCode == 38) {
+        currentFocus--;
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        e.preventDefault();
+        if (currentFocus > -1) {
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+} 
+
+autocomplete(document.getElementById("myInput"), movies);
+autocomplete(document.getElementById("myInput_2"), movies);
+autocomplete(document.getElementById("myInput_3"), movies);
+autocomplete(document.getElementById("myInput_4"), movies);
+autocomplete(document.getElementById("myInput_5"), movies);
+</script>
+
+</body>
+
+</html>

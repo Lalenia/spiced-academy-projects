@@ -1,0 +1,67 @@
+2021-07-23 18:26:55,492 INFO    MainThread:5216 [wandb_setup.py:_flush():70] setting env: {}
+2021-07-23 18:26:55,492 INFO    MainThread:5216 [wandb_setup.py:_flush():70] multiprocessing start_methods=spawn,fork,forkserver
+2021-07-23 18:26:55,492 INFO    MainThread:5216 [wandb_setup.py:_flush():70] setting login settings: {}
+2021-07-23 18:26:55,492 INFO    MainThread:5216 [wandb_setup.py:_flush():70] setting login settings: {'api_key': 'c37432b0f0c2ea4a3b69b9f7b665990445127f23'}
+2021-07-23 18:26:55,493 INFO    MainThread:5216 [wandb_init.py:_log_setup():303] Logging user logs to /Users/test1/Desktop/wandb/run-20210723_182655-3vzlkzar/logs/debug.log
+2021-07-23 18:26:55,493 INFO    MainThread:5216 [wandb_init.py:_log_setup():304] Logging internal logs to /Users/test1/Desktop/wandb/run-20210723_182655-3vzlkzar/logs/debug-internal.log
+2021-07-23 18:26:57,107 INFO    MainThread:5216 [wandb_run.py:_console_start():1218] atexit reg
+2021-07-23 18:26:57,108 INFO    MainThread:5216 [wandb_run.py:_redirect():1085] redirect: SettingsConsole.REDIRECT
+2021-07-23 18:26:57,108 INFO    MainThread:5216 [wandb_run.py:_redirect():1088] Redirecting console.
+2021-07-23 18:26:57,108 INFO    MainThread:5216 [redirect.py:install():204] install start
+2021-07-23 18:26:57,109 INFO    MainThread:5216 [redirect.py:install():219] install stop
+2021-07-23 18:26:57,109 INFO    MainThread:5216 [redirect.py:install():204] install start
+2021-07-23 18:26:57,109 INFO    MainThread:5216 [redirect.py:install():219] install stop
+2021-07-23 18:26:57,109 INFO    MainThread:5216 [wandb_run.py:_redirect():1132] Redirects installed.
+2021-07-23 18:26:57,109 INFO    MainThread:5216 [wandb_config.py:__setitem__():135] config set max_len = 11 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7ffc6bfd5f40>>
+2021-07-23 18:26:57,110 INFO    MainThread:5216 [wandb_run.py:_config_callback():547] config_cb max_len 11 {'_wandb': {'cli_version': '0.10.11', 'python_version': '3.8.5', 'is_jupyter_run': False, 'is_kaggle_kernel': False, 'framework': 'keras'}, 'max_len': 11}
+2021-07-23 18:26:57,110 INFO    MainThread:5216 [wandb_config.py:__setitem__():135] config set buckets = 20 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7ffc6bfd5f40>>
+2021-07-23 18:26:57,110 INFO    MainThread:5216 [wandb_run.py:_config_callback():547] config_cb buckets 20 {'_wandb': {'cli_version': '0.10.11', 'python_version': '3.8.5', 'is_jupyter_run': False, 'is_kaggle_kernel': False, 'framework': 'keras'}, 'max_len': 11, 'buckets': 20}
+2021-07-23 18:26:57,111 INFO    MainThread:5216 [wandb_run.py:_atexit_cleanup():1188] got exitcode: 1
+2021-07-23 18:26:57,111 INFO    MainThread:5216 [wandb_run.py:_restore():1160] restore
+2021-07-23 18:26:57,111 INFO    MainThread:5216 [redirect.py:uninstall():223] uninstall start
+2021-07-23 18:26:57,112 INFO    MainThread:5216 [redirect.py:_stop():278] _stop: stdout
+2021-07-23 18:26:57,112 INFO    MainThread:5216 [redirect.py:_stop():284] _stop closed: stdout
+2021-07-23 18:26:57,112 INFO    stdout    :5216 [redirect.py:_pipe_relay():120] relay done saw last write: stdout
+2021-07-23 18:26:57,112 INFO    stdout    :5216 [redirect.py:_pipe_relay():136] relay done done: stdout
+2021-07-23 18:26:57,112 INFO    MainThread:5216 [redirect.py:_stop():290] _stop joined: stdout
+2021-07-23 18:26:57,112 INFO    MainThread:5216 [redirect.py:_stop():292] _stop rd closed: stdout
+2021-07-23 18:26:57,112 INFO    MainThread:5216 [redirect.py:uninstall():227] uninstall done
+2021-07-23 18:26:57,112 INFO    MainThread:5216 [redirect.py:uninstall():223] uninstall start
+2021-07-23 18:26:57,112 INFO    MainThread:5216 [redirect.py:_stop():278] _stop: stderr
+2021-07-23 18:26:57,113 INFO    MainThread:5216 [redirect.py:_stop():284] _stop closed: stderr
+2021-07-23 18:26:57,113 INFO    stderr    :5216 [redirect.py:_pipe_relay():120] relay done saw last write: stderr
+2021-07-23 18:26:57,113 INFO    stderr    :5216 [redirect.py:_pipe_relay():136] relay done done: stderr
+2021-07-23 18:26:57,113 INFO    MainThread:5216 [redirect.py:_stop():290] _stop joined: stderr
+2021-07-23 18:26:57,113 INFO    MainThread:5216 [redirect.py:_stop():292] _stop rd closed: stderr
+2021-07-23 18:26:57,113 INFO    MainThread:5216 [redirect.py:uninstall():227] uninstall done
+2021-07-23 18:26:57,873 INFO    MainThread:5216 [wandb_run.py:_wait_for_finish():1305] got exit ret: uuid: "848d784208ad4fd9a9dcb4ba57c70e2e"
+response {
+  poll_exit_response {
+    file_counts {
+      wandb_count: 1
+    }
+    pusher_stats {
+      uploaded_bytes: 449
+      total_bytes: 449
+    }
+  }
+}
+
+2021-07-23 18:26:59,880 INFO    MainThread:5216 [wandb_run.py:_wait_for_finish():1305] got exit ret: uuid: "c15cf20378b2451788d4053cd3ca1a73"
+response {
+  poll_exit_response {
+    done: true
+    exit_result {
+    }
+    file_counts {
+      wandb_count: 5
+    }
+    pusher_stats {
+      uploaded_bytes: 7379
+      total_bytes: 7379
+    }
+  }
+}
+
+2021-07-23 18:27:00,994 INFO    MainThread:5216 [wandb_run.py:_show_files():1517] logging synced files
+2021-07-23 18:27:00,995 INFO    MainThread:5216 [internal.py:handle_exit():138] Internal process exited

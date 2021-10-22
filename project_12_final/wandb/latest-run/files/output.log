@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "speech_rec_keras.py", line 21, in <module>
+    X_train, X_test, y_train, y_test = get_train_test()
+NameError: name 'get_train_test' is not defined

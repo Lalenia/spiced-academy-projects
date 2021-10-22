@@ -1,0 +1,19 @@
+
+body {
+    background-color: rgb(50, 162, 255);
+    color: black;
+    width: 100%;
+
+}
+
+.header {
+    /* margin uses background of the body */
+    margin: 0px;
+    /* distance between the margin and the 
+       content of an element 
+       uses background of this element */
+    padding: 30px;
+    width: 100%;
+    background-color: rgb(255, 0, 127);
+    text-align: center;
+}

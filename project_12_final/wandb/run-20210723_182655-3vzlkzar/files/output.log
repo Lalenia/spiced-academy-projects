@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "speech_rec_keras.py", line 17, in <module>
+    save_data_to_array(max_len=config.max_len, n_mfcc=config.buckets)
+NameError: name 'save_data_to_array' is not defined

@@ -1,0 +1,16 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.10.11
+    framework: keras
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.5
+buckets:
+  desc: null
+  value: 20
+max_len:
+  desc: null
+  value: 11

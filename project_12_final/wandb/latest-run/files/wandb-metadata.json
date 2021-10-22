@@ -1,0 +1,16 @@
+{
+    "os": "macOS-10.15.7-x86_64-i386-64bit",
+    "python": "3.8.5",
+    "heartbeatAt": "2021-07-23T16:33:49.978966",
+    "startedAt": "2021-07-23T16:33:48.383014",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "codePath": "speech_rec_keras.py",
+    "program": "speech_rec_keras.py",
+    "host": "tests-MBP.fritz.box",
+    "username": "test1",
+    "executable": "/opt/anaconda3/bin/python"
+}
